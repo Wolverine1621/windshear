@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Aviation Weather</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/stylesheet.css">
+    </head>
+    
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-static-top">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class='sr-only'>Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://www.westmichiganaviation.org/">WMAA</a>
+                </div>
+                
+                <ul class="nav navbar-nav navbar-collapse collapse">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="pages/charts.html">Charts</a></li>
+                    <li><a href="pages/links.html">Links</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Navbar -->
+        
+        
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="centeredheader">Metar</h2>
+                        <p id="metar"></p>
+                    </div>
+                        
+                    <div class="col-md-6">
+                        <h2 class="centeredheader">TAF</h2>
+                        <p id='taf'></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Jumbotron -->
+        
+        
+        <!-- Submission Form -->
+        <div class="submissioncontainer">
+            <div>
+                <div align="center" class="formwrapper">
+                    <p class="form-control-static">Airport</p>
+                    <div class="input-group-btn">
+                        <form action="javascript:buttonPressed()" id="submission" class="input-group input-group-btn">
+                            <div class="row">
+                                <input type="text" name="airport" id="inputfield" class="form-control" placeholder="KGRR">
+                                <button type="button" onclick="buttonPressed()" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Submission Form -->
+        
+        
+        <!-- Images -->
+        <div class="container-fluid imagescontainer">
+            <div class="row" id="airmets">
+                <div class="images img-responsive">
+                    <h3>SIGMET/AIRMET</h3>
+                    <div align="center">
+                        <img src="https://www.aviationweather.gov/adds/data/airmets/airmets_ALL.gif" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" id="sfcanalysis">
+                <div class="images img-responsive">
+                    <h3>Surface Analysis</h3>
+                    <div align="center">
+                        <img src="https://www.aviationweather.gov/adds/data/progs/hpc_sfc_analysis.gif" />
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="row" id="radar">
+                <div class="images img-responsive">
+                    <h3>Weather Radar</h3>
+                    <div align="center">
+                        <img src="https://aviationweather.gov/data/obs/radar/rcm_tops.gif" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Images -->
+        
+        
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="js/buildPage.js"></script>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Weather Charts</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/stylesheet.css">
+    </head>
+    
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-static-top">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class='sr-only'>Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://www.westmichiganaviation.org/">WMAA</a>
+                </div>
+                
+                <ul class="nav navbar-nav navbar-collapse collapse">
+                    <li class="active"><a href="../index.html">Home</a></li>
+                    <li><a href="charts.html" class="active">Charts</a></li>
+                    <li><a href="links.html">Links</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Navbar -->
+        
+        
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <div class="container-fluid">
+                <div class="row">
+                    <div align="center">
+                        <h1>Weather Charts</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Jumbotron -->
+        
+        
+        <!-- Charts -->
+        <div class="container-fluid">
+            <div class="row" id="sfcprogs">
+                <h3>12/24 Hour Surface Prog</h3>
+                <p>Refer to links section for low level prognostic charts</p>
+                <div class="col-md-6">
+                    <div class="images img-responsive">
+                        <div align="center">
+                            <img src="https://aviationweather.gov/adds/data/progs/hpc_12_fcst.gif" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="images img-responsive">
+                        <div align="center">
+                            <img src="https://aviationweather.gov/adds/data/progs/hpc_24_fcst.gif" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" id="pirep">
+                <h3>PIREPs</h3>
+                <div class="col-md-6">
+                    <div class="images img-responsive">
+                        <div align="center">
+                            <img src="https://www.aviationweather.gov/adds/data/pireps/pireps_NC_TB.gif" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="images img-responsive">
+                        <div align="center">
+                            <img src="https://www.aviationweather.gov/adds/data/pireps/pireps_NE_TB.gif" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Charts -->
+        
+        
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+</html>
