@@ -62,3 +62,18 @@ body {
     margin:5px;
 }
 /* Images */
+
+/* Misc Styling */
+#weatherlinks {
+    margin: 50px;
+}
+
+#toollinks {
+    margin: 50px;
+}
+
+#borderdiv {
+   border-bottom: 1px solid #2980b9;
+   margin-left: 50px;
+   margin-right: 50px;
+}
