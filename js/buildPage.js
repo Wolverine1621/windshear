@@ -32,10 +32,10 @@ function updateWeather(weatherICAO) {
         displayString += blockArray[0];
         for (var i = 1; i < blockArray.length; i++) {
             displayString = displayString + indentString + "FM" + blockArray[i];
-            console.log(i);
         }
         
         // TEMPO formatting
+        console.log(displayString);
         displayString = formatTempos(displayString);
         
         document.getElementById('taf').innerHTML = displayString;   
@@ -61,12 +61,23 @@ function airportSearchButtonPressed() {
 
 // Helper Methods
 function formatTempos(str) { // Iterates over the string, finds and indents TEMPO blocks
-    var tempoIndex = str.indexOf("TEMPO");
+    var indentString = "<br>&nbsp;&nbsp;&nbsp;&nbsp;"
     
-    var formattedString = str.slice(0, tempoIndex) + "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + str.slice(tempoIndex);
+    var hasTempo = true;
+    var startIndex = 0; // Index for indexOf to begin looking at the string
     
-    return formattedString;
+    while(hasTempo) {
+        var tempoIndex = str.indexOf("TEMPO", startIndex); // Should skip over the previous TEMPO
+        if (tempoIndex != -1) {
+            str = str.slice(0, tempoIndex) + indentString + str.slice(tempoIndex);
+            startIndex = tempoIndex + 5 + indentString.length; // Moves the indexOf starting index up the length of the indent string + "TEMPO"
+        } else {
+            hasTempo = false;
+        }
+    }
+    return str;
 }
+
 
 
 
