@@ -1,10 +1,10 @@
-window.onload = updatePage("KGRR");
+window.onload = updateWeather("KGRR");
 
-
-function updatePage(aptString) {
+// METAR/TAF information
+function updateWeather(weatherICAO) {
     // Build API URLS
-    var metarURL = "https://avwx.rest/api/metar/" + aptString
-    var tafURL = "https://avwx.rest/api/taf/" + aptString + "?options=info";
+    var metarURL = "https://avwx.rest/api/metar/" + weatherICAO
+    var tafURL = "https://avwx.rest/api/taf/" + weatherICAO + "?options=info";
     
     // Metar call
     $.getJSON(metarURL, function(metar) {
@@ -21,7 +21,7 @@ function updatePage(aptString) {
         
         // If the taf json is === undefined, an error will be thrown - catch unavailable tafs
         try {
-            var blockArray = tafString.split("FM");    
+            var blockArray = tafString.split("FM"); // KNOWN ISSUE: TEMPO blocks are not accounted for;
         } catch(err) {
             document.getElementById('taf').innerHTML = "TAF not available";
         }
@@ -35,13 +35,37 @@ function updatePage(aptString) {
             console.log(i);
         }
         
+        // TEMPO formatting
+        displayString = formatTempos(displayString);
+        
         document.getElementById('taf').innerHTML = displayString;   
     });
 }
 
+// Airport info search
+function airportInfoSearch(infoICAO) {
+    var aopaURL = "https://www.aopa.org/airports/" + infoICAO;
+    
+    var win = window.open(aopaURL, "_blank");
+    win.focus();
+}
+
 // Form Submission Handlers
-function buttonPressed() {
-    updatePage(document.getElementById("inputfield").value);
+function weatherButtonPressed() {
+    updateWeather(document.getElementById("weatherinputfield").value);
+}
+
+function airportSearchButtonPressed() {
+    airportInfoSearch(document.getElementById("airportinputfield").value);
+}
+
+// Helper Methods
+function formatTempos(str) { // Iterates over the string, finds and indents TEMPO blocks
+    var tempoIndex = str.indexOf("TEMPO");
+    
+    var formattedString = str.slice(0, tempoIndex) + "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + str.slice(tempoIndex);
+    
+    return formattedString;
 }
 
 
