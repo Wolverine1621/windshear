@@ -11,7 +11,7 @@ function updateWeather(weatherICAO) {
         if(!(typeof(metar.Error) === "undefined")) {
             document.getElementById("metar").innerHTML = "METAR not available";
         } else {
-            document.getElementById('metar').innerHTML = metar["Raw-Report"] + " " + metar.Remarks;
+            document.getElementById('metar').innerHTML = metar["Raw-Report"];
         }
     });
 
@@ -26,6 +26,7 @@ function updateWeather(weatherICAO) {
             document.getElementById('taf').innerHTML = "TAF not available";
         }
         
+        // Move to helper method 
         var displayString = "";
         var indentString = "<br>&nbsp;&nbsp;&nbsp;&nbsp;"
         
@@ -33,9 +34,9 @@ function updateWeather(weatherICAO) {
         for (var i = 1; i < blockArray.length; i++) {
             displayString = displayString + indentString + "FM" + blockArray[i];
         }
+        // Move to helper method
         
         // TEMPO formatting
-        console.log(displayString);
         displayString = formatTempos(displayString);
         
         document.getElementById('taf').innerHTML = displayString;   
