@@ -64,7 +64,6 @@
         <div class="container-fluid">
             <div class="row" id="sfcprogs">
                 <h3>12/24 Hour Surface Prog</h3>
-                <p>Low level prog charts can be found <a href="https://aviationweather.gov/progchart/low">here</a> (AWC)</p>
                 <div class="col-md-6">
                     <div class="images img-responsive">
                         <div align="center">
@@ -77,6 +76,26 @@
                     <div class="images img-responsive">
                         <div align="center">
                             <img src="https://aviationweather.gov/adds/data/progs/hpc_24_fcst.gif" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" id="llprogs">
+                <h3>Low Level Prog</h3>
+                <p id="debug" ><strong>Verify chart currency with date!</strong> Low level prog found <a href="https://aviationweather.gov/progchart/low">here</a> (AWC)</p>
+                <div class="col-md-12">
+                    <div class="images img-responsive">
+                        <div align="center">
+                            <img src="" id="firstllprog" alt="Error displaying image" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="images img-responsive">
+                        <div align="center">
+                            <img src="" id="secondllprog" alt="Error displaying image" />
                         </div>
                     </div>
                 </div>
@@ -127,5 +146,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="../js/clock.js"></script>
+        <script src="../js/llprog.js"></script>
     </body>
 </html>

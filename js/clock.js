@@ -5,6 +5,7 @@ window.onload = init;
 
 function init() {
     startTime();
+    buildLLProgs(); // From llprog.js
 }
 
 function startTime() {

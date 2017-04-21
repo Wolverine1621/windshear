@@ -9,7 +9,7 @@ body {
 }
 
 
-.textcentered, .centeredheader, .images, #pirep, #sfcprogs { /* Text Centering */
+.textcentered, .centeredheader, .images, #pirep, #sfcprogs, #llprogs { /* Text Centering */
     text-align: center;
 }
 /* Body Content */
@@ -40,6 +40,10 @@ body {
     margin-bottom: 0px;
 }
 
+.navbar-brand {
+    color: #f15a29;
+}
+
 .icon-bar {
     background-color: #2980b9;
 }
@@ -57,7 +61,7 @@ body {
     overflow: hidden;
 }
 
-#sfcprogs {
+#sfcprogs, #llprogs {
     border-bottom: 1px solid #2980b9;
     margin:5px;
 }
