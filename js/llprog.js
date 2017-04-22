@@ -20,7 +20,7 @@ function buildLLProgs() {
         updateImages(vt06z, vt00z);
     } else if (currentHour >= 17 && currentHour < 22) { // VT12Z
         updateImages(vt12z, vt06z);
-    } else if (currentHour >= 22 && currentHour < 5) { // VT18Z
+    } else if (currentHour >= 22 || currentHour < 5) { // VT18Z - or logic necessary to account for reset to 0 hours
         updateImages(vt18z, vt12z);
     }
 }
