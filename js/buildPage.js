@@ -3,7 +3,8 @@ window.onload = updateWeather("KGRR");
 // METAR/TAF information
 function updateWeather(weatherICAO) {
     // Build API URLS
-    var metarURL = "https://avwx.rest/api/metar/" + weatherICAO
+    weatherICAO = weatherICAO.toUpperCase();
+    var metarURL = "https://avwx.rest/api/metar/" + weatherICAO;
     var tafURL = "https://avwx.rest/api/taf/" + weatherICAO + "?options=info";
     
     // Metar call
