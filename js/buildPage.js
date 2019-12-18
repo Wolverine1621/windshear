@@ -1,7 +1,7 @@
 window.onload = updateWeather("KGRR");
 
 // METAR/TAF information
-function updateWeather(weatherICAO) {
+/*function updateWeather(weatherICAO) {
     // Build API URLS
     weatherICAO = weatherICAO.toUpperCase();
     var metarURL = "https://avwx.rest/api/metar/" + weatherICAO;
@@ -42,7 +42,7 @@ function updateWeather(weatherICAO) {
         
         document.getElementById('taf').innerHTML = displayString;   
     });
-}
+}*/
 
 // Airport info search
 function airportInfoSearch(infoICAO) {
