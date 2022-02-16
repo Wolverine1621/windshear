@@ -1,24 +1,25 @@
 window.onload = updateWeather("KGRR");
 
 // METAR/TAF information
-/*function updateWeather(weatherICAO) {
+function updateWeather(weatherICAO) {
     // Build API URLS
     weatherICAO = weatherICAO.toUpperCase();
-    var metarURL = "https://avwx.rest/api/metar/" + weatherICAO;
-    var tafURL = "https://avwx.rest/api/taf/" + weatherICAO + "?options=info";
+    var metarURL = "http://localhost:8000/api/v1/metar?icao=" + weatherICAO;
+    var tafURL = "http://localhost:8000/api/v1/taf?icao=" + weatherICAO + "&options=info";
     
     // Metar call
     $.getJSON(metarURL, function(metar) {
         if(!(typeof(metar.Error) === "undefined")) {
             document.getElementById("metar").innerHTML = "METAR not available";
         } else {
-            document.getElementById('metar').innerHTML = metar["Raw-Report"];
+            console.log(metar)
+            document.getElementById('metar').innerHTML = metar["sanitized"];
         }
     });
 
     // TAF call
     $.getJSON(tafURL, function(taf) {
-        var tafString = taf["Raw-Report"];
+        var tafString = taf["sanitized"];
         
         // If the taf json is === undefined, an error will be thrown - catch unavailable tafs
         try {
@@ -42,7 +43,7 @@ window.onload = updateWeather("KGRR");
         
         document.getElementById('taf').innerHTML = displayString;   
     });
-}*/
+}
 
 // Airport info search
 function airportInfoSearch(infoICAO) {
