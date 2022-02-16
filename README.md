@@ -1,10 +1,10 @@
-# AVWX
-Aviation weather site for personal/internal use
+# Windshear
+Aviation weather site for flight simulation use
 
 This is a personal web development project that began during my private pilot flight training - I wanted a way to easily aggregate
-all the weather data that I needed into one place, to supplement proper use of approved aviation weather resources.
+all the weather data that I needed into one place, to supplement proper use of approved aviation weather resources. My aviationbackground, coupled with a long-standing love for flight simulation, resulted in the development of Windshear.
 
-The site is mostly designed for personal use/use among friends. Any information on the site should not be used to make final flight
-decisions, and should be used to supplement proper weather sources. 
+The site is designed for flight simulation. Any information on the site should not be used to make real-world flight
+decisions.
 
-Designed using Twitter Bootstrap and AVWX REST API.
+Designed using Bootstrap and AVWX REST API.
