@@ -4,8 +4,8 @@ window.onload = updateWeather("KGRR");
 function updateWeather(weatherICAO) {
     // Build API URLS
     weatherICAO = weatherICAO.toUpperCase();
-    var metarURL = "http://localhost:8000/api/v1/metar?icao=" + weatherICAO;
-    var tafURL = "http://localhost:8000/api/v1/taf?icao=" + weatherICAO + "&options=info";
+    var metarURL = "http://windshear-api.herokuapp.com/api/v1/metar?icao=" + weatherICAO;
+    var tafURL = "http://windshear-api.herokuapp.com/api/v1/taf?icao=" + weatherICAO + "&options=info";
     
     // Metar call
     $.getJSON(metarURL, function(metar) {
