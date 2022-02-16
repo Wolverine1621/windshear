@@ -12,7 +12,6 @@ function updateWeather(weatherICAO) {
         if(!(typeof(metar.Error) === "undefined")) {
             document.getElementById("metar").innerHTML = "METAR not available";
         } else {
-            console.log(metar)
             document.getElementById('metar').innerHTML = metar["sanitized"];
         }
     });
