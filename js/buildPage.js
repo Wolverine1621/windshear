@@ -7,8 +7,12 @@ function updateWeather(weatherICAO) {
     var api_stub = "https://windshear-api.herokuapp.com/api/v1/";
     var metarURL = api_stub + "metar?icao=" + weatherICAO;
     var tafURL = api_stub + "taf?icao=" + weatherICAO + "&options=info";
+
+    var spinner = "<div class=\"spinner-border text-primary\" role=\"status\"><span class=\"visually-hidden\">Loading...</span></div>"
+
+    document.getElementById("metar").innerHTML = spinner;
+    document.getElementById("taf").innerHTML = spinner;
     
-    ;
     fetch(metarURL)
         .then(response => {
             if (!response.ok) throw Error(response.statusText);
