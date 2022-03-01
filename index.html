@@ -7,126 +7,147 @@
         
         <title>Aviation Weather</title>
         
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="css/stylesheet.css">
         
         <!-- Favicon -->
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
     </head>
     
     <body>
-        <!-- Navbar -->
-        <nav class="navbar navbar-static-top">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class='sr-only'>Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Windshear</a>
-                </div>
-                
-                <ul class="nav navbar-nav navbar-collapse collapse">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="pages/charts.html">Charts</a></li>
-                    <li><a href="pages/links.html">Links</a></li>
-                    <li><a href="pages/about.html">About</a></li>
-                </ul>
-                
-                <!-- Navbar pull right -->
-                <ul class="nav navbar-nav navbar-collapse collapse pull-right">
-                    <li><h3 class="navbar-text" id="time"></h3></li>
-                </ul>
+        <div class="container-fluid bg-dark p-0 m-0 text-light">
+            <!-- Navbar -->
+            <div class="">
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark px-4 py-0 mb-4">
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbar-content">
+                        <div class="navbar-header">
+                            <a class="navbar-brand text-primary fw-bold" href="index.html">Windshear</a>
+                        </div>
+                        
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pages/charts.html">Charts</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
+                        </ul>
+                    </div>
+                            
+                    <div class="float-end">
+                        <ul class="nav navbar-nav">
+                            <li><h3 class="navbar-text text-primary" id="time"></h3></li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </nav>
-        <!-- Navbar -->
-        
-        
-        <!-- Jumbotron -->
-        <div class="jumbotron">
-            <div class="container-fluid">
+            <!-- Navbar -->
+            
+            
+            <!-- Jumbotron -->
+            <div class="jumbotron py-3 px-5">
                 <div class="row">
                     <div class="col-md-6">
-                        <h2 class="centeredheader">Metar</h2>
+                        <h2 class="text-center">Metar</h2>
                         <p id="metar">Loading...</p>
                     </div>
                         
                     <div class="col-md-6">
-                        <h2 class="centeredheader">TAF</h2>
+                        <h2 class="text-center">TAF</h2>
                         <p id='taf'>Loading...</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Jumbotron -->
-        
-        
-        <!-- Submission Form -->
-        <div class="submissioncontainer">
-            <div>
-                <div align="center" class="formwrapper">
-                    <p class="form-control-static">Airport</p>
-                    <div class="input-group-btn">
-                        <form action="javascript:weatherButtonPressed()" id="submission" class="input-group input-group-btn">
-                            <div class="row">
-                                <input type="text" name="airport" id="weatherinputfield" class="form-control" placeholder="KGRR">
-                                <button type="button" onclick="WeatherButtonPressed()" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </div>
+            <!-- Jumbotron -->
+            
+            
+            <!-- Submission Form -->
+            <div class="d-flex justify-content-center align-items-center pb-5">
+                <div class="">
+                    <p class="form-control-static text-center">Airport</p>
+                    <div class="">
+                        <form action="javascript:weatherButtonPressed()" id="submission" class="input-group">
+                            <input type="text" name="airport" id="weatherinputfield" class="form-control" placeholder="KGRR">
+                            <button type="submit" onclick="WeatherButtonPressed()" class="btn btn-primary">
+                                Submit
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Submission Form -->
-        
-        
-        <!-- Images -->
-        <div class="container-fluid imagescontainer">
-            <div class="row" id="airmets">
-                <div class="images img-responsive">
-                    <h3>SIGMETs</h3>
-                    <p>AIRMETs not shown - available <a href="https://aviationweather.gov/gairmet" target="_blank">here</a></p>
-                    <div align="center">
-                        <img src="https://www.aviationweather.gov/data/products/sigmet/20220216/21/20220216_2125_sigmet_all.gif" />
+            <!-- Submission Form -->
+            
+            <div class="container d-flex align-items-center justify-content-center">
+                <hr class="align-items-center w-100">
+            </div>
+            
+            <!-- Images -->
+            <div class="container pb-5">
+                <div class="row text-center py-3" id="radar">
+                    <div class="images">
+                        <h3>Weather Radar</h3>
+                        <div>
+                            <img class="img-fluid" src="https://aviationweather.gov/data/obs/radar/rcm_tops.gif" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container d-flex align-items-center justify-content-center">
+                    <hr class="align-items-center w-100">
+                </div>
+
+                <div class="row text-center py-3" id="sfcanalysis">
+                    <div class="images">
+                        <h3>Surface Analysis</h3>
+                        <div>
+                            <img class="img-fluid" src="https://www.aviationweather.gov/data/products/progs/F000_wpc_sfc.gif" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container d-flex align-items-center justify-content-center">
+                    <hr class="align-items-center w-100">
+                </div>
+
+                <div class="row text-center py-3" id="sigmets">
+                    <div class="images">
+                        <h3>SIGMETs</h3>
+                        <div>
+                            <img class="img-fluid" src="https://www.aviationweather.gov/data/products/sigmet/sigmet_all.gif" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container d-flex align-items-center justify-content-center">
+                    <hr class="align-items-center w-100">
+                </div>
+
+                <div class="row text-center py-3" id="airmets">
+                    <h3>AIRMETs</h3>
+                    <div class="col-sm images p-2">
+                        <h4>Sierra</h4>
+                        <img class="img-fluid" src="https://www.aviationweather.gov/data/products/gairmet/F00_gairmet_sierra_us.gif" />
+                    </div>
+
+                    <div class="col-sm images p-2">
+                        <h4>Tango</h4>
+                        <img class="img-fluid" src="https://www.aviationweather.gov/data/products/gairmet/F00_gairmet_tango_us.gif" />
+                    </div>
+
+                    <div class="col-sm images p-2">
+                        <h4>Zulu</h4>
+                        <img class="img-fluid" src="https://www.aviationweather.gov/data/products/gairmet/F00_gairmet_zulu-i_us.gif" />
                     </div>
                 </div>
             </div>
-            
-            <div class="row" id="sfcanalysis">
-                <div class="images img-responsive">
-                    <h3>Surface Analysis</h3>
-                    <div align="center">
-                        <img src="https://www.aviationweather.gov/adds/data/progs/hpc_sfc_analysis.gif" />
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="row" id="radar">
-                <div class="images img-responsive">
-                    <h3>Weather Radar</h3>
-                    <div align="center">
-                        <img src="https://aviationweather.gov/data/obs/radar/rcm_tops.gif" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Images -->
-        
+        </div> 
         
         <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="js/buildPage.js"></script>
-        <script src="js/llprog.js"></script>
         <script src="js/clock.js"></script>
+
     </body>
 </html>

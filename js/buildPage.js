@@ -4,44 +4,39 @@ window.onload = updateWeather("KGRR");
 function updateWeather(weatherICAO) {
     // Build API URLS
     weatherICAO = weatherICAO.toUpperCase();
-    var metarURL = "https://windshear-api.herokuapp.com/api/v1/metar?icao=" + weatherICAO;
-    var tafURL = "https://windshear-api.herokuapp.com/api/v1/taf?icao=" + weatherICAO + "&options=info";
+    var api_stub = "https://windshear-api.herokuapp.com/api/v1/";
+    var metarURL = api_stub + "metar?icao=" + weatherICAO;
+    var tafURL = api_stub + "taf?icao=" + weatherICAO + "&options=info";
     
-    // Metar call
-    $.getJSON(metarURL, function(metar) {
-        if(!(typeof(metar.Error) === "undefined")) {
+    ;
+    fetch(metarURL)
+        .then(response => {
+            if (!response.ok) throw Error(response.statusText);
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById("metar").innerHTML = data["sanitized"];
+        })
+        .catch(error => {
             document.getElementById("metar").innerHTML = "METAR not available";
-        } else {
-            document.getElementById('metar').innerHTML = metar["sanitized"];
-        }
-    });
+        })
 
     // TAF call
-    $.getJSON(tafURL, function(taf) {
-        var tafString = taf["sanitized"];
-        
-        // If the taf json is === undefined, an error will be thrown - catch unavailable tafs
-        try {
-            var blockArray = tafString.split("FM"); // KNOWN ISSUE: TEMPO blocks are not accounted for;
-        } catch(err) {
-            document.getElementById('taf').innerHTML = "TAF not available";
-        }
-        
-        // Move to helper method 
-        var displayString = "";
-        var indentString = "<br>&nbsp;&nbsp;&nbsp;&nbsp;"
-        
-        displayString += blockArray[0];
-        for (var i = 1; i < blockArray.length; i++) {
-            displayString = displayString + indentString + "FM" + blockArray[i];
-        }
-        // Move to helper method
-        
-        // TEMPO formatting
-        displayString = formatTempos(displayString);
-        
-        document.getElementById('taf').innerHTML = displayString;   
-    });
+    fetch(tafURL)
+        .then(response => {
+            if (!response.ok) throw Error(response.statusText);
+            return response.json();
+        })
+        .then(data => {
+            var tafString = data["sanitized"];
+            var blockArray = tafString.split("FM");
+            var displayString = formatTaf(blockArray)
+
+            document.getElementById("taf").innerHTML = displayString;
+        })
+        .catch(error => {
+            document.getElementById("taf").innerHTML = "TAF not available";
+        })
 }
 
 // Airport info search
@@ -59,6 +54,20 @@ function weatherButtonPressed() {
 
 function airportSearchButtonPressed() {
     airportInfoSearch(document.getElementById("airportinputfield").value);
+}
+
+function formatTaf(blockArray) {
+    var indentString = "<br>&nbsp;&nbsp;&nbsp;&nbsp;"
+    var displayString = "";
+        
+    displayString += blockArray[0];
+    for (var i = 1; i < blockArray.length; i++) {
+        displayString = displayString + indentString + "FM" + blockArray[i];
+    }
+    
+    // TEMPO formatting
+    displayString = formatTempos(displayString);
+    return displayString;
 }
 
 // Helper Methods

@@ -1,83 +1,19 @@
 /* Body Content */
 body {
-    background-color: #ecf0f1;
+    overflow-x: hidden
 }
 
-.jumbotron {
-    background-color: #2980b9;
-    color: white;
+.text-primary {
+    color: #48BEFF !important;
+}
+
+.btn-primary {
+    background-color: #48BEFF !important;
+    border: 1px solid #48BEFF !important;
 }
 
 
-.textcentered, .centeredheader, .images, #pirep, #sfcprogs, #llprogs { /* Text Centering */
-    text-align: center;
-}
-/* Body Content */
-
-
-/* Weather Text */
-.submissioncontainer {
-    padding: 20px;
-}
-
-#metar, #taf { 
-    padding: 15px;
-}
-
-#infopage {
-    padding: 20px;
-}
-
-#submission { 
-    padding-bottom: 10px;
-}
-/* Weather Text */
-
-
-/* Navbar */
-.navbar { 
-    color: #2980b9;
-    margin-bottom: 0px;
-}
-
-.navbar-brand {
-    color: #f15a29;
-}
-
-.icon-bar {
-    background-color: #2980b9;
-}
-/* Navbar*/
-
-
-/* Images */
-.images, img {
-    padding: 20px;
-    max-width: 100%;
-    height: auto;
-}
-
-.glyphicon-search , .formwrapper, .images { /* Overflow protection for small screens */
-    overflow: hidden;
-}
-
-#sfcprogs, #llprogs {
-    border-bottom: 1px solid #2980b9;
-    margin:5px;
-}
-/* Images */
-
-/* Misc Styling */
-#weatherlinks {
-    margin: 50px;
-}
-
-#toollinks {
-    margin: 50px;
-}
-
-#borderdiv {
-   border-bottom: 1px solid #2980b9;
-   margin-left: 50px;
-   margin-right: 50px;
+hr {
+    border: 0.1px solid #48BEFF !important;
+    opacity: 1;
 }
